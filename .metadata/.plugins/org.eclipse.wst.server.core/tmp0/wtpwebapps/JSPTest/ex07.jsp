@@ -34,7 +34,6 @@
 	<form method="GET" action="ex07_ok.jsp">
 		<div>
 			문자: <input type="text" name="txt">
-			<!-- 한글이 깨진다. -->
 		</div>
 		<div>
 			숫자: <input type="text" name="num">
