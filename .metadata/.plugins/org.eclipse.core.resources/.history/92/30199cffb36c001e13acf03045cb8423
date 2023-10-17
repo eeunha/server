@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	//무슨 변수?
+	//1. 멤버 변수
+	//2. 지역 변수 -> 접근지정자 못붙임.
+	int a = 10; //지역 변수 > 어떤 메소드 영역
+	
+	/*
+	public void test() {
+		
+	}
+	*/
+%>    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- ex06.jsp -->
+	
+</body>
+</html>

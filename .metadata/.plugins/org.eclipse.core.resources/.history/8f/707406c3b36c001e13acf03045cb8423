@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
+  <display-name>ServletTestOrg</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>ex01</servlet-name>
+    <servlet-class>com.test.servlet.Ex01</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ex01</servlet-name>
+    <url-pattern>/ex01.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>hi</servlet-name>
+    <servlet-class>com.test.servlet.Hi</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>hi</servlet-name>
+    <url-pattern>/hi.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>send</servlet-name>
+    <servlet-class>com.test.servlet.Ex02_Send</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>send</servlet-name>
+    <url-pattern>/send.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>receive</servlet-name>
+    <servlet-class>com.test.servlet.Ex02_Receive</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>receive</servlet-name>
+    <url-pattern>/receive.do</url-pattern>
+  </servlet-mapping>
+</web-app>

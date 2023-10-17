@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%
+//POST > 한글 인코딩
+request.setCharacterEncoding("UTF-8");
+
+//텍스트 박스
+//1. 입력O > 입력값 반환
+//2. 컨트롤O + 입력X > 빈 문자열 반환
+//3. 컨트롤X (key 오류) > null 반환
+String txt1 = request.getParameter("txt1"); 
+
+//System.out.println(txt1 == null); // false
+//System.out.println(txt1.equals("")); // true
+
+
+//암호 박스
+String txt2 = request.getParameter("txt2"); // 한글 입력 안됨. 영어가 넘어감
+
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="http://pinnpublic.dothome.co.kr/cdn/example-min.css">
+
+<style>
+</style>
+</head>
+<body>
+	<!-- ex08_ok.jsp -->
+	<h1>결과</h1>
+
+	<h2>텍스트 박스</h2>
+	<div><%=txt1%></div>
+	
+	<h2>암호 박스</h2>
+	<div><%=txt2%></div>
+
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="http://pinnpublic.dothome.co.kr/cdn/example-min.js"></script>
+	<script>
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+package com.test.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+// 데이터를 받을 서블릿
+public class Ex02_Receive extends HttpServlet{
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		// 데이터 수신
+		// - <input type="text" name="name"> -> name=홍길동
+		// - <input type="text" name="age">  -> age=20
+		
+		// HttpServletRequest req
+		// - 데이터를 수신하는 담당자 역할
+		String name = req.getParameter("name"); // key = name인 홍길동 받아온다.
+		String age = req.getParameter("age");
+		
+		System.out.println(name);
+		System.out.println(age);
+		
+		
+		resp.setCharacterEncoding("UTF-8");
+		PrintWriter writer = resp.getWriter();
+		
+		writer.println("");
+		
+		writer.close();
+	}
+}
