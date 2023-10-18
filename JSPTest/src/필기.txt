@@ -108,13 +108,81 @@ include 지시자
  - HttpServletRequest
  - 클라이언트 > (행동) > 서버
  
- 1. 클라이언트에서 서버로 전송한 데이터를 가져오기
+1. 클라이언트에서 서버로 전송한 데이터를 가져오기
  	- "ex07.jsp" > 사용자로부터 데이터를 입력 + 서버 전송 (send)
  	- "ex07_ok.jsp" > 데이터 수신 + 가공/처리 + 피드백 (receive)
  	
  	- "ex08.jsp" > 모든 입력 컨트롤 테스트(송수신)
  	- "ex08_ok.jsp"
  
- 2. 클라이언트에서 서버로 전송한 데이터 인코딩 처리
+//23.10.18
+ 	- "ex09.jsp"
+ 	- "ex09_ok.jsp"
+ 	
+2. 클라이언트에서 서버로 전송한 데이터 인코딩 처리
  
- 3. 클라이언트에서 서버로 전송할 때의 여러가지 관련 정보 가져오기
+3. 클라이언트에서 서버로 전송할 때의 여러가지 관련 정보 가져오기
+ 	- "ex10_request.jsp"
+ 
+ 
+response 객체
+ - HttpServletResponse
+ 
+1. 서버에서 클라이언트로 돌려주는 HTML 페이지 제작
+- response.getWriter() > PrintWriter > HTML 제작
+ 	
+2. 서버에서 클라이언트로 돌려주는 HTML 페이지 인코딩
+- response.setCharacterEncoding("UTF-8") //서블릿
+- 페이지 지시자 > contentType="charset=UTF-8" //JSP (위와 같음)
+	
+3. 서버에서 클라이언트로 돌려주는 HTML 페이지 MIME 설정
+- contextType="text/html"
+- 브라우저에게 돌려주는 페이지의 형식이 HTML 페이지입니다..라고 알려주는 역할
+	
+4. 페이지 이동하기
+- "ex11_response_1.jsp"
+- "ex11_response_2.jsp"
+
+
+pageContext 객체
+- "ex12_pagecontext_1.jsp"
+- "ex12_pagecontext_2.jsp"
+
+	
+out 객체
+- 출력 객체
+- "ex13_out.jsp"
+
+
+
+pageContext, request, session, application
+- 내부에 데이터를 저장하는 공간이 있다. (MAP)
+- setAttribute(), getAttribute()
+
+
+session 객체
+- 클라이언트(브라우저)의 세션 정보(접속 ~ 종료)를 저장/관리하는 객체
+
+
+웹사이트 == 웹 응용 프로그램 == 웹 애플리케이션
+
+
+application 객체
+- 애플리케이션(웹 사이트)의 전체적인 정보를 관리/조작하는 객체
+
+- "ex14_session_application.jsp"
+
+- "ex15_session.jsp"
+- "ex15_set.jsp"
+- "ex15_del.jsp"
+- "ex15_interval.jsp"
+- "ex15_reset.jsp"
+
+
+
+
+
+
+
+
+
