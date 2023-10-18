@@ -1,0 +1,52 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	request.setCharacterEncoding("UTF-8");
+
+	//<form enctype="multipart/form-data"> 을 적용하면, 인코딩 방식이 변경
+	//1. request.getParameter() 동작 불능
+	//2. request.getParameterValues() 동작 불능
+	
+	//cos.jar > MultipartRequest 클래스 > 객체가 request의 수신 기능 대신
+	
+	//String name = request.getParameter("name");
+	//String age = request.getParameter("age");
+	
+	
+	//업로드된 파일을 어디에 저장할지 경로(webapp\files) 정함 > 로컬 경로로 만들기(C:\..) 
+	
+	//- C:\class\code\server\JSPTest\src\main\webapp\files > 너무 길고 변할수있어
+	
+	//절대 경로(상대 경로) > 로컬 경로 변환
+	String path = application.getRealPath("/files"); // /는 webapp이다.
+	System.out.println(path);
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="http://pinnpublic.dothome.co.kr/cdn/example-min.css">
+
+<style>
+	
+</style>
+</head>
+<body>
+	<!-- ex16_ok.jsp -->
+	<h1>결과</h1>
+	
+	<div>
+		이름: <%= name %>
+	</div>
+	<div>
+		나이: <%= age %>
+	</div>
+	
+	<script src="https://code.jquery.com/jquery-1.12.4.js" ></script>
+	<script src="http://pinnpublic.dothome.co.kr/cdn/example-min.js"></script>
+	<script>
+			
+	</script>
+</body>
+</html>

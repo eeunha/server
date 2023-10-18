@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	/*
+		이미지 뷰어
+		- ex18.jsp		: 메인, 목록보기(뷰어)
+		- ex18_ok.jsp	: 이미지 업로드 처리
+		- ex18_del.jsp	: 이미지 삭제 처리
+	*/
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="http://pinnpublic.dothome.co.kr/cdn/example-min.css">
+
+<style>
+	
+</style>
+</head>
+<body>
+	<!-- ex18.jsp -->
+	<h1>이미지 뷰어</h1>
+	
+	<script src="https://code.jquery.com/jquery-1.12.4.js" ></script>
+	<script src="http://pinnpublic.dothome.co.kr/cdn/example-min.js"></script>
+	<script>
+			
+	</script>
+</body>
+</html>

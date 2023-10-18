@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	request.setCharacterEncoding("UTF-8");
+
+	String name = request.getParameter("name");
+	String age = request.getParameter("age");
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="http://pinnpublic.dothome.co.kr/cdn/example-min.css">
+
+<style>
+	
+</style>
+</head>
+<body>
+	<!-- ex16_ok.jsp -->
+	<h1>결과</h1>
+	
+	<div>
+		이름: <%= name %>
+	</div>
+	<div>
+		나이: <%= age %>
+	</div>
+	
+	<script src="https://code.jquery.com/jquery-1.12.4.js" ></script>
+	<script src="http://pinnpublic.dothome.co.kr/cdn/example-min.js"></script>
+	<script>
+			
+	</script>
+</body>
+</html>
