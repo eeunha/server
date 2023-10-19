@@ -1,7 +1,0 @@
-필기.txt
-
-New > Dynamic Web Project > "JSPTest" > Next > Next > Context root : "jsp" > Generate 체크 O > Finish
-
-Servlet > 자바 베이스(*.java)
-- 장점: 자바를 그대로 사용할 수 있다.
-- 단점: 클라이언트 코드를 작성하기가 불편하다. > 문자열 처리

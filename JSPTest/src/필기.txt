@@ -207,3 +207,39 @@ application 객체
 - "ex18_del.jsp"
 
 
+//23.10.19
+내장 객체 > 저장소 제공 > pageContext, request, session, application
+> 왜? + 선택 기준?? > 생명 주기!!
+
+- 내가 저장 + 사용할 데이터 > 어느 기간동안 사용하는지?
+- 내장 객체 > 어느 기간동안 객체가 유지되는가 > 생명주기 알기
+
+- "ex19_scope_1.jsp": 데이터 입력 페이지
+- "ex19_scope_2.jsp": 데이터 수신 + 처리 페이지
+- "ex19_scope_3.jsp": 결과 페이지
+(=> 여러 장으로 하나의 기능 구현)
+
+
+
+expression
+<%= %>
+
+EL + JSTL
+- 구문 단순 + 가독성 향상
+- 슬로건: JSP 페이지에서 되도록 자바를 쓰지 말자!!
+
+EL 언어(Expression Language)
+- <%= %> 기능을 대신하기 위해서 만들어진 언어 > 가독성 향상
+- "ex20_el.jsp"
+- ${}
+
+
+JSTL
+- 액션 태그
+- JSP Standard Tag Library, 표준 태그 라이브러리 > 확장 태그
+- 자바의 프로그래밍 기능 > 태그로 구현(표현)
+- "ex21_jstl.jsp"
+
+
+
+

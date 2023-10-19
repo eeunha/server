@@ -1,0 +1,7 @@
+package com.test.jsp;
+
+public class Score {
+	private int kor;
+	private int eng;
+	private int math;
+}
