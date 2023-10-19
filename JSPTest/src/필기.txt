@@ -242,4 +242,16 @@ JSTL
 
 
 
+웹 페이지 기술(Basic) + 데이터베이스(JDBC)
+
+새 프로젝트 생성
+- New > Java Project > "JDBCTest" > Finish (모듈 생성 안함)
+
+새 패키지
+- "com.test.jdbc"
+
+새 파일
+- "Ex01.java"
+- JDBCTest > "script.sql"
+
 

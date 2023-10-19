@@ -1,0 +1,89 @@
+필기.txt
+
+Java > Oracle > JDBC > HTML > CSS..
+
+
+JDBC, Java Database Connectivity
+- 자바 프로그램 <- (연결) -> 데이터베이스(오라클)
+- 중간 계층 > 퍼시스턴스 계층(영구 계층)
+
+
+퍼시스턴스 계층
+1. JDBC
+2. Spring JDBC
+3. MyBatis
+4. JPA
+
+
+JDBC 환경 설정
+- *.jar 설치
+- 데이터베이스 제조사 배포 > oracle 홈페이지
+- Oracle 설치 > 설치 폴더 내 > jar 포함 > ojdbc6.jar (C:\oraclexe\app\oracle\product\11.2.0\server\jdbc\lib)
+- JDBCTest > "lib" 폴더 생성 > ojdbc6.jar 복사 + buildpath 에서 jar 추가
+
+
+
+[사람 + SQL Developer <- (SQL) -> Oracle Server]
+1. 클라이언트 프로그램 실행 (sqldeveloper)
+2. DB 서버 접속
+	2.1. 호스트명: 서버IP or 도메인주소 > localhost
+	2.2. 포트번호: 1521
+	2.3. SID: xe
+	2.4. 드라이버: thin
+	2.5. 사용자: hr
+	2.6. 암호: 1234
+3. 질의
+	3.1. SQL 사용 > 대화
+	3.2. 반환값이 없는 쿼리
+		- select를 제외한 모든 쿼리
+	3.3. 반환값이 있는 쿼리
+		- select
+		- 결과셋을 반환
+		- 결과셋을 업무에 사용
+4. 접속 종료
+	4.1. commit/rollback
+	4.2. 접속 종료
+
+
+[자바 프로그램 + JDBC <- (SQL) -> Oracle Server]
+
+1. 자바 프로그램 실행(+JDBC)
+2. DB 서버 접속
+	- JDBC > Connection 클래스 사용
+	2.1. 호스트명: 서버IP or 도메인주소 > localhost
+	2.2. 포트번호: 1521
+	2.3. SID: xe
+	2.4. 드라이버: thin
+	2.5. 사용자: hr
+	2.6. 암호: 1234
+3. 질의
+	- JDBC > Statement 클래스 사용
+	3.1. SQL 사용 > 대화
+	3.2. 반환값이 없는 쿼리
+		- select를 제외한 모든 쿼리
+	3.3. 반환값이 있는 쿼리
+		- select
+		- 결과셋을 반환
+		- 결과셋을 업무에 사용
+		- 결과셋을 JDBC > ResultSet 클래스로 가져온다.
+			> ResultSet 탐색 > 결과셋 소비
+4. 접속 종료
+	- JDBC > Connection 클래스 사용
+	4.1. commit/rollback
+	4.2. 접속 종료
+
+
+JDBC 라이브러리 클래스
+- Connection, Statement, ResultSet
+
+
+
+
+
+
+
+
+
+
+
+
