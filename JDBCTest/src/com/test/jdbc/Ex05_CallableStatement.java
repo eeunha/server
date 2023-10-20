@@ -39,7 +39,7 @@ public class Ex05_CallableStatement {
 
 			// 오라클 커서 == 결과 테이블 탐색하는 참조 객체 == 결과 테이블
 			// ResultSet == 결과 테이블 탐색하는 참조 객체 == 결과 테이블
-			// 오라클 커스 == ResultSet //동일한 구조
+			// 오라클 커서 == ResultSet //동일한 구조
 			rs = (ResultSet) stat.getObject(1);
 
 			while (rs.next()) {
