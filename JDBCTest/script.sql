@@ -71,7 +71,10 @@ create or replace procedure procM5(
 )
 is
 begin
-    select * from tblAddress;
+    open pcursor
+    for
+        select * from tblAddress;
 end procM5;
 
+commit;
 
