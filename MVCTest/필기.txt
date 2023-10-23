@@ -1,0 +1,59 @@
+새 프로젝트
+- New > Dynamic Web Project > "MVCTest" > Next > Next > Context root: "mvc" 
+	> Generate web.xml 체크(o)
+
+
+1. Servlet
+	- 장점 : 자바 기반 > 자바 코드 용이
+	- 단점: 클라이언트 코드 불편
+2. JSP
+	- 장점: 클라이언트 코드 용이
+	- 단점: 자바 코드 불편
+3. Servlet + JSP
+	- 자바코드 > 서블릿에 작성 (선)
+	- 클라이언트 > JSP에 작성 (후)
+
+
+거의 대부분의 JSP 페이지
+
+1. 상단 > <% %> 자바 코드 작성
+2. 중하단 > HTML 코드 작성
+
+
+MVC 디자인 패턴
+Model - (데이터 처리) -> 자바(오라클 DB 처리)
+View - 출력 담당 (HTML 페이지 생산) -> JSP
+Controller - (요청 ~ 응답까지 전체 관리) -> 서블릿
+
+
+JSP Model 1 (todo list) > 자바 코드 + 클라이언트 코드 > 1장의 JSP 페이지에 작성하는 모델
+JSP Model 2 > 서블릿(자바) + JSP(클라이언트)  > MVC 디자인 패턴 채용
+
+JSP MVC Model(X)
+
+
+Hello
+- "com.test.mvc" > "Hello.java"
+- webapp > "hello.jsp"
+- webapp > WEB-INF > views > "hello.jsp"
+
+WEB-INF 특성
+- 시스템 폴더
+- 톰캣만 접근할 수 있는 폴더
+- 브라우저는 직접 접근이 불가능한 폴더
+- 내부 시스템 자원을 관리하는 보안 폴더
+-> jsp는 WEB-INF에 views 에 넣는다. 직접 접근 막는다. servlet으로만 부를 수 있다. 안전.
+
+1. http://localhost:8090/mvc/helo.do
+RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/hello.jsp");
+-> [XXX.do] -> 주소창의 주소 오류. 서블릿은 문제 없음.
+
+2. http://localhost:8090/mvc/hello.do
+RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/helo.jsp");
+-> [XXX.jsp] -> 가상주소 오류. 서블릿 문제.
+
+
+서블릿 호출 -> jsp 호출 (클라이언트 임시페이지 만들기) -> 페이지 받기
+
+servlet을 실행한다.
+jsp를 실행하면 값을 전달받을 수 없다.

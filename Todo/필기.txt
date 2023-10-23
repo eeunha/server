@@ -1,0 +1,33 @@
+새 프로젝트
+- New > Dynamic Web Project > "Todo" > Next > Next >
+Context root: "todo" > Generate web.xml 체크(O)
+
+Todo List, 메모장, 게시판 > CRUD 집중 > 예제
+
+Todo List
+
+1. 주제
+2. 업무
+   	- 할일 쓰기
+   	- 할일 보기(목록)
+   	- 할일 수정하기(X) > 완료 상태(O) 수정
+   	- 할일 삭제하기
+3. DB
+	- script.sql
+4. 화면(+ 페이지) > 눈에 보이는 페이지
+   	- 할일 보기(목록) 페이지 > webapp > list.jsp
+   	- 할일 쓰기 페이지 > 		 webapp > add.jsp, addok.jsp
+   	- 할일 수정 페이지 >		 webapp > editok.jsp
+   	- 할일 삭제 페이지 >		 webapp > delok.jsp
+   	- 템플릿 페이지 > 		 webapp > template.jsp  > 먼저 시작
+5. 리소스
+	- 조각 페이지
+		- webapp > inc > header.jsp
+		- webapp > inc > asset.jsp
+
+
+1. 인성 면접
+2. 기술 면접
+3. 임원 면접
+
+게시판 > 10명 > 1~2명만 제작 가능
