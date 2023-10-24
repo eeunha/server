@@ -10,7 +10,7 @@
 </style>
 </head>
 <body>
-	<!-- template.jsp -->
+	<!-- template.jsp > add.jsp -->
 	
 	<%@ include file="/WEB-INF/views/inc/header.jsp" %>
 	

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,7 @@
 	
 	<%@ include file="/WEB-INF/views/inc/header.jsp" %>
 	
-	목록보기, 메모 쓰기, 수정, 삭제 등..
+
 	
 	<script>
 			

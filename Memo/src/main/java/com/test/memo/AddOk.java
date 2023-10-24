@@ -15,7 +15,7 @@ import com.test.memo.repository.MemoDAO;
 @WebServlet("/addok.do") // 가상주소 바로 생성
 public class AddOk extends HttpServlet {
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		//AddOk.java
 		//1. 데이터 가져오기(name, pw, memo)
@@ -38,9 +38,10 @@ public class AddOk extends HttpServlet {
 		dto.setMemo(memo);
 		
 		//dao.add(name, pw, memo);
-		dao.add(dto); // 넘기는 데이터 2개 이상 > DTO 담아서
+		int result = dao.add(dto); // 넘기는 데이터 2개 이상 > DTO 담아서
 		
 		//3.
+		req.setAttribute("result", result);
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/addok.jsp");
 		dispatcher.forward(req, resp);
 

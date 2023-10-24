@@ -55,4 +55,8 @@
 		
 		- "com.test.memo.dto" 또는
 		- "com.test.memo.model" > "MemoDTO.java"
-							 								 					 
+	
+	- jstl 설치
+		- WEB-INF > lib > jstl-1.2.jar 복사
+		
+								 								 					 
