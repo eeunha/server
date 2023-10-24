@@ -46,8 +46,17 @@
 		<input type="button" value="쓰기" onclick="location.href='/memo/add.do';">
 	</div>
 
+<hr>
+
+	<div id="result"></div>
+	<div>
+		<input type="button" value="클릭" id="btn1">
+	</div>
+	
 	<script>
-			
+		$('#btn1').click(function() {
+			$('#result').text('홍길동');
+		});
 	</script>
 </body>
 </html>

@@ -1,0 +1,35 @@
+새 프로젝트
+- New > Dynamic Web Project > "CrawlingTest" > Next > Next > Context root: "crawling" 
+	> Generate web.xml 체크(o)
+	
+웹 크롤링(Crawling), 웹 스크래핑(Scraping)
+- 웹 사이트(웹 페이지)에서 데이터를 수집하는 행위
+
+
+a. 상대방(웹사이트)이 나에게 DB 권한을 준다면... > 가장 좋은 방법 > 불가능
+b. 상대방이 외부에 OpenAPI 공개 > JSON, XML > 제한적 > 무난한 방법
+c. 웹 페이지의 소스를 긁어서 원하는 데이터를 추출 > 프로그램
+
+
+크롤링 주의점!!
+- 허가 문제, 저작권 문제
+- 정도껏~ > 긁어오는 작업 > 프로그램 > 속도 빠름!! & 횟수 많음!! > 서버 입장 > 서버 비용 & 트래픽 증가
+
+
+크롤링 사전 지식
+1. HTML 이해
+2. CSS 선택자 이해, JavaScript 이해
+3. Java 이해
+
+- "com.test.java" > "Ex01.java"
+
+
+
+1. Jsoup 
+	> 정적 페이지(자바 스크립트가 개입되지 않은 페이지), 미인증 페이지(로그인 X)
+	> 속도 빠름
+	
+2. Selenium 
+	> 모든 페이지(로그인O, 자바스크립트 동적 컨텐츠)
+	> 속도 느림
+
