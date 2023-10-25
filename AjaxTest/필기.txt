@@ -1,0 +1,57 @@
+새 프로젝트
+- New > Dynamic Web Project > "AjaxTest" > Next > Next > Context root: "ajax" 
+	> Generate web.xml 체크(o)
+	
+- "com.test.ajax" 패키지 생성
+- "com.test.ajax.controller"
+- "com.test.ajax.repository"
+- "com.test.ajax.model"
+
+- "WEB-INF" > "views" 폴더 생성
+
+- WEB-INF > lib > ojdbc6.jar
+				> jstl-1.2.jar
+				> lombok.jar	> 예정
+				> json			> 예정
+
+
+Ajax, Asynchronous JavaScript and XML
+- 자바스크립트 기술
+- 비동기 방식으로 자바스크립트를 사용해서 서버와 데이터를 통신하는 기술(XML 형식으로 주고받는다.)
+
+
+- com.test.ajax.controller > "Ex01.java"
+						   > "Ex01Data.java"
+- com.test.ajax.repository > "AjaxDAO.java"
+- views > "ex01.jsp"
+		> "ex01data.jsp"
+
+
+- com.test.ajax.controller > "Ex02.java"
+						   > "Ex02Data.java"
+- views > "ex02.jsp"
+		> "ex02data.jsp"
+		
+		
+- com.test.ajax.controller > "Ex03.java"
+						   > "Ex03Data.java"
+- views > "ex03.jsp"
+		> "ex03data.jsp"
+		
+		
+- com.test.ajax.controller > "Ex04.java"
+						   > "Ex04Data.java"
+- views > "ex04.jsp"
+		
+
+통신방식
+
+동기: 현재 하던 일이 끝날 때까지 다른 작업을 못함.	
+업무의 순서 예측 가능
+-> 순서가 필요한 업무
+
+비동기 : 현재 하던 일이 끝나지 않아도 다른 작업이 가능하다.
+업무의 순서 예측 불가능 > 구현 복잡
+-> 순서가 필요 없는 업무 
+
+병렬
