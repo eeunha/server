@@ -123,4 +123,24 @@ public class AjaxDAO {
 		}
 		return null;
 	}
+
+	public int check(String id) {
+		try {
+			String sql = "select count(*) as cnt from tblUser where id = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, id);
+			
+			rs = pstat.executeQuery();
+			
+			if (rs.next()) {
+				return rs.getInt("cnt");
+			}
+			
+		} catch (Exception e) {
+			System.out.println("AjaxDAO.check()");
+			e.printStackTrace();
+		}
+		return 0;
+	}
 }

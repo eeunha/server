@@ -55,3 +55,22 @@ Ajax, Asynchronous JavaScript and XML
 -> 순서가 필요 없는 업무 
 
 병렬
+
+
+
+//23.10.26
+		
+- com.test.ajax.controller > "Ex05.java"
+						   > "Ex05Data.java"
+- views > "ex05.jsp"
+
+		
+- com.test.ajax.controller > "Ex06.java"
+						   > "Ex06Data.java"
+- views > "ex06.jsp"
+		
+		
+- com.test.ajax.controller > "Ex07.java"
+						   > "Ex07Data.java"
+- views > "ex07.jsp"
+		
