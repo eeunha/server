@@ -266,4 +266,20 @@ public class AjaxDAO {
 		}
 		return 0;
 	}
+
+	public int delAddress(String seq) {
+		try {
+			String sql = "delete from tblAddress where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, seq);
+			
+			return pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("AjaxDAO.delAddress()");
+			e.printStackTrace();
+		}
+		return 0;
+	}
 }

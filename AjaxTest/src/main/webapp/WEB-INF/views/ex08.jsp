@@ -354,7 +354,11 @@
 					data: 'seq=' + seq,
 					dataType: 'json',
 					success: function(result) {
-						
+						if (result.result) {
+							load();
+						} else {
+							alert('failed');
+						}
 					},
 					error: function(a, b, c) {
 						console.log(a, b, c);
