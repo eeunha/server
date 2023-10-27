@@ -5,7 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 
+import com.test.ajax.model.AddressDTO;
 import com.test.ajax.model.CatDTO;
 import com.test.ajax.model.MemoDTO;
 
@@ -188,12 +190,80 @@ public class AjaxDAO {
 			}
 
 			return list;
-			
+
 		} catch (Exception e) {
 			System.out.println("AjaxDAO.listCat()");
 			e.printStackTrace();
 		}
-		
+
 		return null;
+	}
+
+	public ArrayList<AddressDTO> listAddress() {
+		try {
+			String sql = "select seq, name, age, gender, address, to_char(regdate, 'yyyy-mm-dd') as regdate from tblAddress order by seq desc";
+
+			stat = conn.createStatement();
+			rs = stat.executeQuery(sql);
+
+			ArrayList<AddressDTO> list = new ArrayList<>();
+
+			while (rs.next()) {
+				AddressDTO dto = new AddressDTO();
+				
+				dto.setSeq(rs.getString("seq"));
+				dto.setName(rs.getString("name"));
+				dto.setAge(rs.getString("age"));
+				dto.setGender(rs.getString("gender"));
+				dto.setAddress(rs.getString("address"));
+				dto.setRegdate(rs.getString("regdate"));
+				
+				list.add(dto);
+			}
+
+			return list;
+			
+		} catch (Exception e) {
+			System.out.println("AjaxDAO.listAddress()");
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
+	public int addAddress(AddressDTO dto) {
+		try {
+			String sql = "insert into tblAddress (seq, name, age, gender, address, regdate) values (seqAddress.nextVal, ?, ?, ?, ?, default)";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getName());
+			pstat.setString(2, dto.getAge());
+			pstat.setString(3, dto.getGender());
+			pstat.setString(4, dto.getAddress());
+			
+			return pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("AjaxDAO.addAddress()");
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	public int editAddress(HashMap<String, String> map) {
+		try {
+			String sql = String.format("update tblAddress set %s = ? where seq = ?", map.get("column"));
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, map.get("value"));
+			pstat.setString(2, map.get("seq"));
+			
+			return pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("AjaxDAO.editAddress()");
+			e.printStackTrace();
+		}
+		return 0;
 	}
 }

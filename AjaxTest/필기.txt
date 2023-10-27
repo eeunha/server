@@ -74,3 +74,11 @@ Ajax, Asynchronous JavaScript and XML
 						   > "Ex07Data.java"
 - views > "ex07.jsp"
 		
+
+//23.10.27
+- AjaxTest > "script.sql"		
+- com.test.ajax.controller > "Ex08.java"
+- com.test.ajax.service > "List.java"
+- com.test.ajax.service > "Add.java"
+- com.test.ajax.model > "AddressDTO.java"						   
+- views > "ex08.jsp"
