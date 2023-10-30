@@ -1,6 +1,7 @@
 package com.test.toy.user;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -41,7 +42,7 @@ public class Register extends HttpServlet {
 			MultipartRequest multi = new MultipartRequest(req, req.getRealPath("/asset/pic"), 1024 * 1024 * 10, "UTF-8",
 					new DefaultFileRenamePolicy());
 
-			// System.out.println(req.getRealPath("/asset/pic")); //
+			// System.out.println(req.getRealPath("/asset/pic"));
 			// C:\class\code\server\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ToyProject\asset\pic
 
 			String id = multi.getParameter("id");
@@ -53,7 +54,6 @@ public class Register extends HttpServlet {
 
 			UserDTO dto = new UserDTO();
 
-			
 			dto.setId(id);
 			dto.setPw(pw);
 			dto.setName(name);
@@ -65,10 +65,16 @@ public class Register extends HttpServlet {
 
 			int result = dao.register(dto);
 
+			if (result == 1) {
+				resp.sendRedirect("/toy/index.do");
+			}
 		} catch (Exception e) {
 			System.out.println("Register.doPost()");
 			e.printStackTrace();
 		}
 
+		PrintWriter writer = resp.getWriter();
+		writer.print("<script>alert('failed');history.back();</script>");
+		writer.close();
 	}
 }

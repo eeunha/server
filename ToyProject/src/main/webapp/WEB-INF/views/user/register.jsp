@@ -16,7 +16,7 @@
 	<%@ include file="/WEB-INF/views/inc/header.jsp" %>
 	
 	<main id="main">
-		<h1>회원 <small>가입하기</small></h1>
+		<h1 title="sub">회원 <small>가입하기</small></h1>
 		
 		<form method="POST" action="/toy/user/register.do" enctype="multipart/form-data">
 			<table class="vertical" >
