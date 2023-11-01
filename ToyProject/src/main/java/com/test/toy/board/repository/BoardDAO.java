@@ -70,4 +70,87 @@ public class BoardDAO {
 		return null;
 	}
 
+	public BoardDTO get(String seq) {
+		try {
+			
+			String sql = "select tblBoard.*, (select name from tblUser where id = tblBoard.id) as name from tblBoard where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, seq);
+			
+			rs = pstat.executeQuery();
+			
+			if (rs.next()) {
+				BoardDTO dto = new BoardDTO();
+				
+				dto.setSeq(rs.getString("seq"));
+				dto.setSubject(rs.getString("subject"));
+				dto.setContent(rs.getString("content"));
+				dto.setRegdate(rs.getString("regdate"));
+				dto.setReadcount(rs.getInt("readcount"));
+				dto.setId(rs.getString("id"));
+				dto.setName(rs.getString("name"));
+				
+				return dto;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public void updateReadcount(String seq) {
+		try {
+
+			String sql = "update tblBoard set readcount = readcount + 1 where seq = ?";
+
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, seq);
+			
+			pstat.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		
+	}
+
+	public int edit(BoardDTO dto) {
+		try {
+
+			String sql = "update tblBoard set subject = ?, content = ? where seq = ?";
+
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getSubject());
+			pstat.setString(2, dto.getContent());
+			pstat.setString(3, dto.getSeq());
+
+			return pstat.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return 0;
+	}
+
+	public int del(String seq) {
+		try {
+
+			String sql = "delete from tblBoard where seq = ?";
+
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, seq);
+
+			return pstat.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return 0;
+	}
+
 }
