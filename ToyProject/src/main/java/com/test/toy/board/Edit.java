@@ -28,10 +28,16 @@ public class Edit extends HttpServlet {
 		//1.
 		String seq = req.getParameter("seq");
 		
-		//2.
 		BoardDAO dao = new BoardDAO();
 		
 		BoardDTO dto = dao.get(seq);
+		
+		//2. " > \"
+		String subject = dto.getSubject();
+		
+		subject = subject.replace("\"", "&quot;");
+		dto.setSubject(subject);
+		
 		
 		//3.
 		req.setAttribute("dto", dto);
