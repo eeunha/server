@@ -19,3 +19,19 @@ select * from vwBoard;
 update tblBoard set regdate = regdate - 1 where seq < 25;
 
 commit;
+
+-- 23.11.02
+
+update tblUser set lv = 2 where id = 'admin';
+
+commit;
+
+select * from vwBoard;
+
+select * from vwBoard where subject like '%게시판%'; --검색
+
+
+-- 페이징 > rownum 활용
+select * from (select a.*, rownum as rnum from vWBoard a) where rnum between 1 and 10;
+select * from (select a.*, rownum as rnum from vWBoard a) where rnum between 11 and 20;
+select * from (select a.*, rownum as rnum from vWBoard a) where rnum between 21 and 30;

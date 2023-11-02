@@ -24,6 +24,9 @@ public class View extends HttpServlet {
 
 		// 1.
 		String seq = req.getParameter("seq");
+		String search = req.getParameter("search");
+		String column = req.getParameter("column");
+		String word = req.getParameter("word");
 
 		// 2.
 		BoardDAO dao = new BoardDAO();
@@ -31,7 +34,7 @@ public class View extends HttpServlet {
 		if (session.getAttribute("read") != null && session.getAttribute("read").toString().equals("n")) {
 			// 2.3. 조회수 증가
 			dao.updateReadcount(seq);
-			
+
 			session.setAttribute("read", "y");
 		}
 
@@ -56,6 +59,13 @@ public class View extends HttpServlet {
 		content = content.replace("\r\n", "<br>");
 
 		dto.setContent(content);
+
+		// 내용으로 검색 > 검색어 강조!!
+		if (search.equals("y") && column.equals("content")) {
+			// 이제 넷플릭스 구독을 해지합니다.
+			// 이제 <span style='background-color:gold;color:tomato;'>넷플릭스</span> 구독을 해지합니다.
+			dto.setContent(dto.getContent().replace(word, "<span style='background-color:gold;color:tomato;'>" + word + "</span>"));
+		}
 
 		// 3.
 		req.setAttribute("dto", dto);

@@ -48,7 +48,7 @@
 		<div>
 			<button type="button" class="back" onclick="location.href='/toy/board/list.do';">뒤로가기</button>
 			
-			<c:if test="${not empty id}">
+			<c:if test="${not empty id && (dto.id == id || lv == 2)}">
 			<button type="button" class="edit" onclick="location.href='/toy/board/edit.do?seq=${dto.seq}';">수정하기</button>
 			<button type="button" class="del" onclick="location.href='/toy/board/del.do?seq=${dto.seq}';">삭제하기</button>
 			</c:if>
