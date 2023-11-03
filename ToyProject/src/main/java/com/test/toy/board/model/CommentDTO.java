@@ -1,32 +1,16 @@
 package com.test.toy.board.model;
 
-public class BoardDTO {
+import lombok.Data;
+
+@Data
+public class CommentDTO {
 	private String seq;
-	private String subject;
 	private String content;
 	private String regdate;
-	private int readcount;
 	private String id;
+	private String bseq;
 
-	private String name; // 다른 테이블 값 저장해도 상관없다.
-	private int isnew;
-	private int ccnt;
-
-	public int getCcnt() {
-		return ccnt;
-	}
-
-	public void setCcnt(int ccnt) {
-		this.ccnt = ccnt;
-	}
-
-	public int getIsnew() {
-		return isnew;
-	}
-
-	public void setIsnew(int isnew) {
-		this.isnew = isnew;
-	}
+	private String name;
 
 	public String getName() {
 		return name;
@@ -42,14 +26,6 @@ public class BoardDTO {
 
 	public void setSeq(String seq) {
 		this.seq = seq;
-	}
-
-	public String getSubject() {
-		return subject;
-	}
-
-	public void setSubject(String subject) {
-		this.subject = subject;
 	}
 
 	public String getContent() {
@@ -68,14 +44,6 @@ public class BoardDTO {
 		this.regdate = regdate;
 	}
 
-	public int getReadcount() {
-		return readcount;
-	}
-
-	public void setReadcount(int readcount) {
-		this.readcount = readcount;
-	}
-
 	public String getId() {
 		return id;
 	}
@@ -84,4 +52,11 @@ public class BoardDTO {
 		this.id = id;
 	}
 
+	public String getBseq() {
+		return bseq;
+	}
+
+	public void setBseq(String bseq) {
+		this.bseq = bseq;
+	}
 }

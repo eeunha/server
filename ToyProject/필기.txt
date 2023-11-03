@@ -61,10 +61,14 @@
 		- Del.java: 삭제
 		- Auth.java: 권한 확인  > 23.11.02
 		- Dummy.java: 더미 데이터
+		- Comment.java: 댓글  > 23.11.03
+		- DelComment.java: 댓글 삭제
+		- EditComment.java: 댓글 수정
 	6. com.test.toy.board.repository
 		- BoardDAO.java
 	7. com.test.toy.board.model
 		- BoardDTO.java
+		- CommentDTO.java  > 23.11.03
 	8. com.test.toy.filter: 필터
 		- EncodingFilter.java
 		- AuthFilter.java
@@ -138,5 +142,19 @@ Favicon
 
 
 
+------------------------------------------------------------------------------
+23.11.03
+댓글
 
 
+게시글 제거 시 댓글이 먼저 삭제되어야 한다.
+방법
+1. 다 지운다.
+	a. 딸린 댓글을 강제 삭제
+	b. 게시물 삭제
+
+2. 못지운다.
+	a. 경고 > 네가 쓴 글에 댓글이 있어서 못지워
+	
+3. 삭제(X) > 수정(O)
+	a. 이전의 회원 탈퇴 방식

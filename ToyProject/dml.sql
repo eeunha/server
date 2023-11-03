@@ -35,3 +35,7 @@ select * from vwBoard where subject like '%게시판%'; --검색
 select * from (select a.*, rownum as rnum from vWBoard a) where rnum between 1 and 10;
 select * from (select a.*, rownum as rnum from vWBoard a) where rnum between 11 and 20;
 select * from (select a.*, rownum as rnum from vWBoard a) where rnum between 21 and 30;
+
+
+-- 23.11.03
+select * from tblComment;

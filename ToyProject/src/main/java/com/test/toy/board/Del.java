@@ -48,7 +48,11 @@ public class Del extends HttpServlet {
 		
 		//2.
 		BoardDAO dao = new BoardDAO();
-		int result = dao.del(seq);
+		
+		//딸린 댓글들 삭제
+		dao.delCommentAll(seq);
+		
+		int result = dao.del(seq); // 댓글이 있으면 문제 발생
 		
 		if (result == 1) {
 			resp.sendRedirect("/toy/board/list.do");
