@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="14" version="2.0">
 <workbenchAdvisor/>
-<window height="768" maximized="true" minimized="true" width="1024" x="192" y="192">
+<window height="768" maximized="true" width="1024" x="192" y="192">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -30,7 +30,7 @@
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="toy.exerd" partName="toy.exerd" path="C:/class/code/server/exerd/ToyProject/toy.exerd" title="toy.exerd" tooltip="ToyProject/toy.exerd" workbook="DefaultEditorWorkbook">
+<editor focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="toy.exerd" partName="toy.exerd" path="C:/class/code/server/exerd/ToyProject/toy.exerd" title="toy.exerd" tooltip="ToyProject/toy.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToyProject/toy.exerd"/>
 </editor>
 </editors>
@@ -40,6 +40,12 @@
 <filters>
 <filter element=".*" isEnabled="false"/>
 </filters>
+<expanded>
+<element path="/ToyProject"/>
+</expanded>
+<selection>
+<element path="/ToyProject/toy.exerd"/>
+</selection>
 </viewState>
 </view>
 <view id="com.tomato.exerd.ui.views.thumbnail" partName="썸네일">
@@ -58,7 +64,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="com.tomato.exerd.editor.DiagramEditor" activePerspective="com.tomato.exerd.perspective.design">
+<perspectives activePart="org.eclipse.ui.views.ResourceNavigator" activePerspective="com.tomato.exerd.perspective.design">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="com.tomato.exerd.perspective.ExerdPerspectiveFactory" id="com.tomato.exerd.perspective.design" label="eXERD"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>

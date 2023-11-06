@@ -158,3 +158,34 @@ Favicon
 	
 3. 삭제(X) > 수정(O)
 	a. 이전의 회원 탈퇴 방식
+
+----------------------------------------------------------------
+23.11.06
+
+Open API > map
+- Google Map
+- Naver Map
+- Daum Map
+
+
+Kakao Map API
+- https://apis.map.kakao.com/web/guide/
+
+카카오 개발자 센터
+- https://developers.kakao.com/ > 회원 가입 or 로그인
+
+
+- "com.test.toy.map" > "Ex.java"
+					 > "MapDAO.java"
+					 > "MapDTO.java"
+					 > "AddMarker.java"
+					 
+					 > "AddPlace.java"
+					 > "ListPlace.java"
+					 > "DelPlace.java"
+					 > "PlaceDTO.java"
+
+- views > "map" > "ex01.jsp"
+				> "ex02.jsp"
+				> "ex03.jsp"			
+				> "ex04.jsp"

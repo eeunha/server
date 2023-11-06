@@ -71,3 +71,33 @@ create table tblComment (
 create sequence seqComment;
 
 commit;
+
+----------------------------------
+--23.11.06
+
+--마커 저장 테이블
+create table tblMarker(
+    seq number primary key, --PK
+    lat number not null,    --위도(latitude)
+    lng number not null     --경도(longitude)
+);
+
+create sequence seqMarker;
+
+select * from tblMarker;
+
+
+-- 장소 테이블
+create table tblPlace(
+    seq number primary key,                             --PK
+    lat number not null,                                --위도(latitude)
+    lng number not null,                                --경도(longitude)
+    name varchar2(100) not null,                        --장소명
+    category varchar2(100) default 'default' not null   --장소분류
+);
+
+create sequence seqPlace;
+
+select * from tblPlace;
+
+commit;
