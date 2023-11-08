@@ -189,3 +189,4 @@ Kakao Map API
 				> "ex02.jsp"
 				> "ex03.jsp"			
 				> "ex04.jsp"
+				> "ex05.jsp"  231108
