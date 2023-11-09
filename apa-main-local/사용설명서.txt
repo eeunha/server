@@ -1,0 +1,11 @@
+com.apa > DBUtil
+	자기 자신 sql 서버에 맞게 바꿔서 사용
+com.apa > main
+	메인 페이지 시작
+com.apa > main2
+	마이 페이지 시작
+asset > css
+	.min.css 파일은 절대로 클릭하지 말것(이클립스 멈춤)
+	멈췄을시 https://myvelop.tistory.com/82 참고
+views > template
+	메인페이지, 마이페이지 알아서 가져가서 사용
