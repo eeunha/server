@@ -50,8 +50,8 @@
 		            data-parent="#accordionSidebar">
 		            <div class="bg-white py-2 collapse-inner rounded">
 		                <a class="collapse-item" href="/apa/hospital/diagnosis/list.do">오늘의 진료</a>
-		                <a class="collapse-item" href="/apa/hospital/diagnosis/list.do">모든 진료 예약</a>
-		                <a class="collapse-item" href="/apa/hospital/diagnosis/total/list.do">모든 진료 내역</a>
+		                <a class="collapse-item" href="/apa/hospital/diagnosis/all/register/list.do">모든 진료 예약</a>
+		                <a class="collapse-item" href="/apa/hospital/diagnosis/all/history/list.do">모든 진료 내역</a>
 		            </div>
 		        </div>
 		    </li>
