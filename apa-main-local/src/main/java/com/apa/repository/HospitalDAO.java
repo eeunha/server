@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import com.apa.model.HospitalDTO;
 
@@ -15,8 +16,8 @@ public class HospitalDAO {
 
 	public HospitalDAO() {
 //		conn = DBUtil.open(); 
-		
-		conn = DBUtil.open("localhost", "apa_test_2", "java1234"); 
+
+		conn = DBUtil.open("localhost", "apa_test_2", "java1234");
 	}
 
 	public HospitalDTO login(HospitalDTO dto) {
@@ -35,7 +36,7 @@ public class HospitalDAO {
 
 				result.setHospitalId(rs.getString("hospitalId"));
 				result.setHospitalName(rs.getString("hospitalName"));
-				
+
 				return result;
 			}
 
@@ -45,4 +46,5 @@ public class HospitalDAO {
 
 		return null;
 	}
+
 }

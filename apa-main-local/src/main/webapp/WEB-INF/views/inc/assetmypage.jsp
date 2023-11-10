@@ -20,7 +20,9 @@
 <script src="/apa/asset/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="/apa/asset/js/sb-admin-2.min.js"></script>
+<script src="/apa/asset/js/sb-admin.js"></script>
+<!-- <script src="/apa/asset/js/sb-admin-2.min.js"></script> -->
+<!-- <script src="/apa/asset/js/sb-admin-2.js"></script> -->
 
 <!-- Page level plugins -->
 <script src="/apa/asset/vendor/chart.js/Chart.min.js"></script>
