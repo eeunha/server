@@ -94,7 +94,8 @@
 						<a class="collapse-item" href="/apa/hospital/customer/list.do">내원환자</a>
 						<a class="collapse-item" href="/apa/hospital/document/list.do">서류요청</a>
 					</div>
-				</div></li>
+				</div>
+			</li>
 
 			<!-- Nav Item - Pages Collapse Menu -->
 			<li class="nav-item"><a class="nav-link collapsed"

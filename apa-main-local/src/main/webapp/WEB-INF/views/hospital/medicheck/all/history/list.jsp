@@ -83,7 +83,7 @@
 				</div></li>
 
 			<!-- Nav Item - Utilities Collapse Menu -->
-			<li class="nav-item"><a class="nav-link collapse" href="#"
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-toggle="collapse" data-target="#collapseUtilities3"
 				aria-expanded="true" aria-controls="collapseUtilities"> <i
 					class="fas fa-fw fa-user"></i> <span>고객</span>
@@ -94,7 +94,8 @@
 						<a class="collapse-item" href="/apa/hospital/customer/list.do">내원환자</a>
 						<a class="collapse-item" href="/apa/hospital/document/list.do">서류요청</a>
 					</div>
-				</div></li>
+				</div>
+			</li>
 
 			<!-- Nav Item - Pages Collapse Menu -->
 			<li class="nav-item"><a class="nav-link collapsed"

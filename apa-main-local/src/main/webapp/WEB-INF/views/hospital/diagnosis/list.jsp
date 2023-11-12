@@ -11,41 +11,117 @@
 	background-color: #dddfeb;
 }
 
-#list th:nth-child(1) {
-	width: 50px;
-}
-#list th:nth-child(2) {
-	width: 100px;
-}
-#list th:nth-child(3) {
-	width: 200px;
-}
-#list th:nth-child(4) {
-	width: 100px;
-}
-#list th:nth-child(5) {
-	width: 600px;
-}
-#list th:nth-child(6) {
-	width: 200px;
+.list tr {
+	height: 40px;
 }
 
-#list th {
+.list tbody tr:hover{
+	cursor: pointer;
+	background-color: #dddfeb;
+}
+
+.list th {
 	text-align: center;
 	border-right: 1px solid #CCC;
 }
 
-#list tr:first-child th {
+.list tr:first-child th {
 	background-color: #edf0f7;
 }
 
-#list td {
+.list td {
 	border-bottom: 1px solid #edf0f7;
 	border-right: 1px solid #edf0f7;
+	text-align: center;
 }
 
-#list {
-	border-collapse: collapse;
+.list tr td button:hover {
+	background-color: #CCC;
+}
+
+button {
+	border: none;
+	border-radius: 5px;
+	color: #858796
+}
+
+.null-msg{
+	text-align: center;
+}
+
+#register-list th:nth-child(1) {
+	width: 50px;
+}
+#register-list th:nth-child(2) {
+	width: 100px;
+}
+#register-list th:nth-child(3) {
+	width: 100px;
+}
+#register-list th:nth-child(4) {
+	width: 270px;
+}
+#register-list th:nth-child(5) {
+	width: 100px;
+}
+#register-list th:nth-child(6) {
+	width: 600px;
+}
+#register-list th:nth-child(7) {
+	width: 270px;
+}
+#register-list th:nth-child(8) {
+	width: 150px;
+}
+
+#register-list td:nth-child(6) {
+	padding-left: 10px;
+	text-align: left;
+}
+
+
+
+#history-list th:nth-child(1) {
+	width: 50px;
+}
+#history-list th:nth-child(2) {
+	width: 100px;
+}
+#history-list th:nth-child(3) {
+	width: 100px;
+}
+#history-list th:nth-child(4) {
+	width: 100px;
+}
+#history-list th:nth-child(5) {
+	width: 600px;
+}
+#history-list th:nth-child(6) {
+	width: 150px;
+}
+#history-list th:nth-child(7) {
+	width: 100px;
+}
+#history-list th:nth-child(8) {
+	width: 100px;
+}
+#history-list th:nth-child(9) {
+	width: 120px;
+}
+#history-list th:nth-child(10) {
+	width: 140px;
+}
+
+#history-list td:nth-child(5) {
+	padding-left: 10px;
+	text-align: left;
+}
+
+#title-date {
+	padding-top: 28px;
+	margin-left: 30px;
+	font-size: 1.2rem;
+
 }
 </style>
 <body id="page-top">
@@ -110,7 +186,6 @@
 				<div id="collapseUtilities2" class="collapse"
 					aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<!-- <h6 class="collapse-header">건강검진 타입: </h6> -->
 						<a class="collapse-item" href="/apa/hospital/medicheck/list.do">오늘의 건강검진</a> 
 						<a class="collapse-item" href="/apa/hospital/medicheck/all/register/list.do">모든 건강검진 예약</a> <a
 							class="collapse-item" href="/apa/hospital/medicheck/all/history/list.do">모든 건강검진 내역</a>
@@ -173,6 +248,7 @@
 						class="d-sm-flex align-items-center justify-content-between mb-4">
 						<h1 class="h3 mb-0 text-gray-800 hansans"
 							style="padding-top: 28px;">오늘의 진료</h1>
+							<h4 id="title-date"> [ 2023년 11월 12일 ]</h4>
 					</div>
 
 					<!-- Topbar Navbar -->
@@ -214,7 +290,7 @@
 
 					<div class="row">
 						<!-- Area Chart -->
-						<div class="col-xl-12 col-lg-7">
+						<div class="col-xl-12 col-lg-7 rgst-div">
 							<div class="card shadow mb-4">
 								<!-- Card Header - Dropdown -->
 								<div
@@ -223,30 +299,44 @@
 								</div>
 								<!-- Card Body -->
 								<div class="card-body">
-									<div class="chart-area">
-										<!-- <canvas id="myAreaChart"></canvas> -->
-										<table id="list">
-											<tr>
-												<th>번호</th>
-												<th>접수자이름</th>
-												<th>예약일시</th>
-												<th>의사이름</th>
-												<th>상세증상</th>
-												<th>신청일시</th>
-											</tr>
-											
-											<c:forEach items="${list}" var="dto" varStatus="status">
+									<table id="register-list" class="list">
+										<thead>
+											<c:if test="${list.size() != 0}">
 												<tr>
-													<td>${status.count} ${dto.mediSeq}</td>
-													<td>${dto.userName}</td>
-													<td>${dto.treatmentDate}</td>
-													<td>${dto.doctorName}</td>
-													<td>${dto.symptom}</td>
-													<td>${dto.regdate}</td>
+													<th>번호</th>
+													<th>예약번호</th>
+													<th>접수자</th>
+													<th>예약일시</th>
+													<th>의사</th>
+													<th>상세증상</th>
+													<th>신청일시</th>
+													<th>확인</th>
+												</tr>
+											</c:if>
+										</thead>
+										
+										<tbody>
+											<c:forEach items="${registerList}" var="dto" varStatus="status">
+												<tr>
+													<td onclick="location.href='/apa/hospital/diagnosis/register-view.do?mediSeq=${dto.mediSeq}'">${registerList.size() - status.count + 1}</td>
+													<td onclick="location.href='/apa/hospital/diagnosis/register-view.do?mediSeq=${dto.mediSeq}'">${dto.mediSeq}</td>
+													<td onclick="location.href='/apa/hospital/diagnosis/register-view.do?mediSeq=${dto.mediSeq}'">${dto.userName}</td>
+													<td onclick="location.href='/apa/hospital/diagnosis/register-view.do?mediSeq=${dto.mediSeq}'">${dto.treatmentDate}</td>
+													<td onclick="location.href='/apa/hospital/diagnosis/register-view.do?mediSeq=${dto.mediSeq}'">${dto.doctorName}</td>
+													<td onclick="location.href='/apa/hospital/diagnosis/register-view.do?mediSeq=${dto.mediSeq}'">${dto.symptom}</td>
+													<td onclick="location.href='/apa/hospital/diagnosis/register-view.do?mediSeq=${dto.mediSeq}'">${dto.regdate}</td>
+													<td>
+														<button type="button" name="btnApproval" id="btnApproval" onclick="approvalRegister('${dto.mediSeq}');">승인</button>
+														<button type="button" name="btnDecline" id="btnDecline" onclick="declineRegister('${dto.mediSeq}');">거절</button>
+													</td>
 												</tr>
 											</c:forEach>
-										</table>
-									</div>
+											
+											<c:if test="${list.size() == 0}">
+												<h4 class="null-msg">오늘 날짜의 예약 신청이 없습니다.</h4>
+											</c:if>
+										</tbody>										
+									</table>
 								</div>
 							</div>
 						</div>
@@ -263,9 +353,59 @@
 								</div>
 								<!-- Card Body -->
 								<div class="card-body">
-									<div class="chart-area">
-										<canvas id="myAreaChart"></canvas>
-									</div>
+									<table id="history-list" class="list">
+										<c:if test="${list.size() != 0}">
+											<tr>
+												<th>번호</th>
+												<th>예약번호</th>
+												<th>접수자</th>
+												<th>환자</th>
+												<th>상세증상</th>
+												<th>진료과목</th>
+												<th>의사</th>
+												<th>예약시간</th>
+												<th>진행상태</th>
+												<th>확인</th>
+											</tr>
+										</c:if>
+										
+										<c:forEach items="${mediList}" var="dto" varStatus="status">
+											<tr onclick="location.href='/apa/hospital/diagnosis/history-view.do">
+												<td>${mediList.size() - status.count + 1}</td>
+												<td>${dto.mediSeq}</td>
+												<td>${dto.userName}</td>
+												<td>
+													<c:if test="${dto.childName == null}">
+														${dto.userName}
+													</c:if>
+													<c:if test="${dto.childName != null}">
+														${dto.childName}
+													</c:if>
+												</td>
+												<td>${dto.symptom}</td>
+												<td>${dto.departmentName}</td>
+												<td>${dto.doctorName}</td>
+												<td>${dto.treatmentDate}</td>
+												<td>${dto.waitingStatus}</td>
+												<td>
+													<c:if test="${dto.waitingStatus == '대기중'}">
+														<button type="button" name="btnCall" id="btnCall">환자호출</button>
+													</c:if>
+													<c:if test="${dto.waitingStatus == '진료중'}">
+														<button type="button" name="btnFinish" id="btnFinish">진료완료</button>
+													</c:if>
+												</td>
+											</tr>
+										</c:forEach>
+										
+										<c:if test="${list.size() == 0}">
+											<h4 class="null-msg">오늘의 진료가 없습니다.</h4>
+										</c:if>
+									</table>
+										
+									<!-- 페이지바 -->
+									<div id="pagebar">${pagebar}</div>
+									
 								</div>
 							</div>
 						</div>
@@ -287,23 +427,63 @@
 	<%@ include file="/WEB-INF/views/inc/hospitallogouttop.jsp"%>
 
 	<script>
-		// Toggle the side navigation
-		/* $("#sidebarToggle, #sidebarToggleTop").on('click', function(e) {
-		   $("body").toggleClass("sidebar-toggled");
-		   $(".sidebar").toggleClass("toggled");
-		   if ($(".sidebar").hasClass("toggled")) {
-		     $('.sidebar .collapse').collapse('hide');
-		   };
-		 });*/
-
-		/* $("#sidebarToggle, #sidebarToggleTop").on('click', function(e) {
-			$("body").toggleClass("sidebar-toggled");
-			$(this).toggleClass("toggled");
-			if ($(this).hasClass("toggled")) {
-				$('.sidebar .collapse').collapse('hide');
-			}
+		function approvalRegister(mediSeq){
+			//alert('승인');
+			//alert(mediSeq);
 			
-		}); */
+			if(confirm('예약을 승인하시겠습니까?')) {
+				$.ajax({
+					type:'POST',
+					url: '/apa/hospital/diagnosis/approval.do',
+					data: 'mediSeq=' + mediSeq,
+					dataType: 'json',
+					success: function(result) {
+						if (result.result == 1) {
+							//load(); //목록 새로고침
+							
+							alert('예약을 승인하였습니다.');
+							
+							location.href='/apa/hospital/diagnosis/list.do';//목록 새로고침
+							
+						} else {
+							alert('0');
+						}
+					}, 
+					error: function(a, b, c) {
+						console.log(a, b, c);
+					}
+				});
+			}
+		}
+		
+		function declineRegister(mediSeq){
+			//alert('거절');
+			//alert(mediSeq);
+			
+			if(confirm('예약을 거절하시겠습니까?')) {
+				$.ajax({
+					type:'POST',
+					url: '/apa/hospital/diagnosis/decline.do',
+					data: 'mediSeq=' + mediSeq,
+					dataType: 'json',
+					success: function(result) {
+						if (result.result == 1) {
+							//load(); //목록 새로고침
+							
+							alert('예약을 거절하였습니다.');
+							
+							location.href='/apa/hospital/diagnosis/list.do'; //목록 새로고침
+							
+						} else {
+							alert('0');
+						}
+					}, 
+					error: function(a, b, c) {
+						console.log(a, b, c);
+					}
+				});
+			}
+		}
 	</script>
 </body>
 </html>

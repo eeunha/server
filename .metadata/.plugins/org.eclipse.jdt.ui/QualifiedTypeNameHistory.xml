@@ -34,4 +34,5 @@
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
     <fullyQualifiedTypeName name="java.sql.Statement"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="com.apa.model.HospitalDTO"/>
 </qualifiedTypeNameHistroy>

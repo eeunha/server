@@ -1,6 +1,7 @@
 package com.apa.hospital.diagnosis;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,12 +10,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONObject;
+
+import com.apa.repository.hospital.DiagnosisDAO;
+
 @WebServlet("/hospital/diagnosis/approval.do")
 public class Approval extends HttpServlet {
+	
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String mediSeq = req.getParameter("mediSeq");
+		System.out.println(mediSeq);
+		
+		DiagnosisDAO dao = new DiagnosisDAO();
+	
+		int result = dao.approvalRegister(mediSeq);
+		
+		resp.setContentType("application/json");
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/hospital/diagnosis/approval.jsp");
-		dispatcher.forward(req, resp);
+		JSONObject obj = new JSONObject();
+		obj.put("result", result);
+		
+		PrintWriter writer = resp.getWriter();
+		writer.write(obj.toString());
+		writer.close();
 	}
 }

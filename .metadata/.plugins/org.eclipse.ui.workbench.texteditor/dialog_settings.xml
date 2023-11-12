@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="active"/>
+		<item key="selection" value="Status"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="active"/>
-			<item value="bold"/>
-			<item value="bord"/>
+			<item value="status"/>
+			<item value="accordionSidebar"/>
+			<item value="sidebarToggle"/>
+			<item value="th"/>
+			<item value=".sidebar"/>
+			<item value="dropdown-toggle"/>
+			<item value="sidebar"/>
 			<item value="nav-link"/>
-			<item value="nav"/>
-			<item value="col-"/>
-			<item value="logout"/>
-			<item value="로그아웃"/>
-			<item value="round"/>
-			<item value="round_circle"/>
-			<item value="round circle"/>
-			<item value="round-circle"/>
-			<item value="pro"/>
-			<item value="가입"/>
-			<item value="님"/>
+			<item value="sidebarToggleTop"/>
+			<item value="toggle"/>
+			<item value="sidebar-toggled"/>
+			<item value="toggleClass"/>
+			<item value="collapse-item"/>
+			<item value="collapse-"/>
+			<item value="active"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="94"/>
-		<item key="DIALOG_Y_ORIGIN" value="234"/>
+		<item key="DIALOG_X_ORIGIN" value="19"/>
+		<item key="DIALOG_Y_ORIGIN" value="312"/>
 		<item key="DIALOG_WIDTH" value="340"/>
 		<item key="DIALOG_HEIGHT" value="454"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

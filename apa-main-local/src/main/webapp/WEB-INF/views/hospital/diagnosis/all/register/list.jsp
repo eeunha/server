@@ -73,14 +73,14 @@
 				<div id="collapseUtilities2" class="collapse"
 					aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<!-- <h6 class="collapse-header">건강검진 타입: </h6> -->
 						<a class="collapse-item" href="/apa/hospital/medicheck/list.do">오늘의 건강검진</a> 
 						<a class="collapse-item" href="/apa/hospital/medicheck/all/register/list.do">모든 건강검진 예약</a> <a
 							class="collapse-item" href="/apa/hospital/medicheck/all/history/list.do">모든 건강검진 내역</a>
 						<a
 							class="collapse-item" href="/apa/hospital/chart/list.do">문진표</a>
 					</div>
-				</div></li>
+				</div>
+			</li>
 
 			<!-- Nav Item - Utilities Collapse Menu -->
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
@@ -178,36 +178,35 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">예약</h6>
+                                    <h5 class="m-0 font-weight-bold text-primary">예약</h5>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div>
+                                    <table id="register-all-list" class="list">
+										<thead>
+											<%-- <c:if test="${list.size() != 0}"> --%>
+												<tr>
+													<th>번호</th>
+													<th>예약번호</th>
+													<th>접수자</th>
+													<th>예약일시</th>
+													<th>의사</th>
+													<th>상세증상</th>
+													<th>신청일시</th>
+													<th>상태</th>
+												</tr>
+											<!-- </c:if> -->
+										</thead>
+										
+										<tbody>
+										
+										</tbody>										
+									</table>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="row">
-                        <!-- Area Chart -->
-                        <div class="col-xl-12 col-lg-7">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">진료 순서</h6>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!-- /.container-fluid -->
 
@@ -223,5 +222,29 @@
     <!-- End of Page Wrapper -->
 
     <%@ include file="/WEB-INF/views/inc/hospitallogouttop.jsp" %>
+    
+    <script>
+    	<%-- const hospitalId = '<%= session.getAttribute("id").toString() %>'; --%>
+    	//alert(hospitalId);
+    
+    	load();
+    	
+    	//댓글 목록 가져오기
+    	function load() {
+    		$.ajax({
+    			type:'GET',
+    			url: '/apa/hospital/diagnosis/all/register/list.do',
+    			/* data: 'hospitalId=' + hospitalId, */
+    			dataType: 'json',
+    			success: function(result) {
+    				
+    			},
+    			error: function(a, b, c) {
+    				console.log(a, b, c);
+    			}
+    		});
+    	}
+    	
+    </script>
 </body>
 </html>
