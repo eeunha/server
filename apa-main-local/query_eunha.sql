@@ -170,6 +170,27 @@ from tblRegister r
         on r.childSeq = c.childSeq
             inner join vwDoctorDepartment d
             on r.doctorSeq = d.doctorSeq;
+            
+--create or replace view vwRegisterDetail
+--as
+--select r.mediSeq, r.hospitalId, r.userSeq, r.childSeq, r.mediWay, r.doctorSeq, r.treatmentDate, r.regdate, r.symptom, r.dispenseSeq, 
+--    u.userName, u.userSSN, u.userID, u.userTel, u.userAddress, u.userEmail, u.userChild, c.childName, 
+--    c.childSSN, c.childTel, d.doctorName, d.doctorImage, d.departmentName, p.waitingPatientSeq, 
+--    case 
+--        when p.waitingStatus = '예약거부' then '거부'
+--        when p.waitingStatus is null then '대기'
+--        else p.waitingStatus
+--    end as waitingStatus
+--from tblRegister r
+--    inner join tblUser u
+--    on r.userSeq = u.userSeq
+--        left outer join tblChild c
+--        on r.childSeq = c.childSeq
+--            inner join vwDoctorDepartment d
+--            on r.doctorSeq = d.doctorSeq
+--                left outer join tblWatingPatientList p
+--                on r.mediSeq = p.mediSeq;
+--select * from vwRegisterDetail r left outer join tblWatingPatientList p on r.mediSeq = p.mediSeq where r.mediSeq = 321;
     
 select * from vwRegisterDetail;
 ------------------------------------------------

@@ -176,7 +176,6 @@ button:hover {
 						class="d-sm-flex align-items-center justify-content-between mb-4">
 						<h1 class="h3 mb-0 text-gray-800 hansans"
 							style="padding-top: 28px;">예약 상세보기</h1>
-							<h4 id="title-date"> [ 2023년 11월 12일 ]</h4>
 					</div>
 
 					<!-- Topbar Navbar -->
@@ -325,7 +324,7 @@ button:hover {
 									<div id="btnArea">
 										<button type="button" name="btnApproval" id="btnApproval" onclick="approvalRegister('${mediSeq}');">승인</button>
 										<button type="button" name="btnDecline" id="btnDecline" onclick="declineRegister('${mediSeq}');">거절</button>
-										<button type="button" onclick="location.href='/apa/hospital/diagnosis/list.do';">취소</button>
+										<button type="button" onclick="location.href='/apa/hospital/diagnosis/list.do';">뒤로가기</button>
 									</div>
 								</div>
 							</div>

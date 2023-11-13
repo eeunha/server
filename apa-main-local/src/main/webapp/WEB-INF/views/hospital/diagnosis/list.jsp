@@ -35,6 +35,10 @@
 	text-align: center;
 }
 
+.list th:last-child, .list td:last-child {
+	border-right: none;
+}
+
 .list tr td button:hover {
 	background-color: #CCC;
 }
@@ -121,7 +125,16 @@ button {
 	padding-top: 28px;
 	margin-left: 30px;
 	font-size: 1.2rem;
+}
 
+#pagebar{
+	text-align: center;
+	margin-top: 20px;
+	font-size: 1.1rem;
+}
+
+.symptomNull {
+	color: #CCC;
 }
 </style>
 <body id="page-top">
@@ -248,7 +261,7 @@ button {
 						class="d-sm-flex align-items-center justify-content-between mb-4">
 						<h1 class="h3 mb-0 text-gray-800 hansans"
 							style="padding-top: 28px;">오늘의 진료</h1>
-							<h4 id="title-date"> [ 2023년 11월 12일 ]</h4>
+							<h4 id="title-date"> [ ${today} ]</h4>
 					</div>
 
 					<!-- Topbar Navbar -->
@@ -317,14 +330,19 @@ button {
 										
 										<tbody>
 											<c:forEach items="${registerList}" var="dto" varStatus="status">
-												<tr>
-													<td onclick="location.href='/apa/hospital/diagnosis/register-view.do?mediSeq=${dto.mediSeq}'">${registerList.size() - status.count + 1}</td>
-													<td onclick="location.href='/apa/hospital/diagnosis/register-view.do?mediSeq=${dto.mediSeq}'">${dto.mediSeq}</td>
-													<td onclick="location.href='/apa/hospital/diagnosis/register-view.do?mediSeq=${dto.mediSeq}'">${dto.userName}</td>
-													<td onclick="location.href='/apa/hospital/diagnosis/register-view.do?mediSeq=${dto.mediSeq}'">${dto.treatmentDate}</td>
-													<td onclick="location.href='/apa/hospital/diagnosis/register-view.do?mediSeq=${dto.mediSeq}'">${dto.doctorName}</td>
-													<td onclick="location.href='/apa/hospital/diagnosis/register-view.do?mediSeq=${dto.mediSeq}'">${dto.symptom}</td>
-													<td onclick="location.href='/apa/hospital/diagnosis/register-view.do?mediSeq=${dto.mediSeq}'">${dto.regdate}</td>
+												<tr onclick="location.href='/apa/hospital/diagnosis/register-view.do?mediSeq=${dto.mediSeq}';">
+													<td>${status.count}</td>
+													<td>${dto.mediSeq}</td>
+													<td>${dto.userName}</td>
+													<td>${dto.treatmentDate}</td>
+													<td>${dto.doctorName}</td>
+													<c:if test="${dto.symptom == null}">
+														<td class="symptomNull">(미작성)</td>
+													</c:if>
+													<c:if test="${dto.symptom != null}">
+														<td>${dto.symptom}</td>
+													</c:if>
+													<td>${dto.regdate}</td>
 													<td>
 														<button type="button" name="btnApproval" id="btnApproval" onclick="approvalRegister('${dto.mediSeq}');">승인</button>
 														<button type="button" name="btnDecline" id="btnDecline" onclick="declineRegister('${dto.mediSeq}');">거절</button>
@@ -354,57 +372,72 @@ button {
 								<!-- Card Body -->
 								<div class="card-body">
 									<table id="history-list" class="list">
-										<c:if test="${list.size() != 0}">
-											<tr>
-												<th>번호</th>
-												<th>예약번호</th>
-												<th>접수자</th>
-												<th>환자</th>
-												<th>상세증상</th>
-												<th>진료과목</th>
-												<th>의사</th>
-												<th>예약시간</th>
-												<th>진행상태</th>
-												<th>확인</th>
-											</tr>
-										</c:if>
+										<thead>
+											<c:if test="${mediList.size() != 0}">
+												<tr>
+													<th>번호</th>
+													<th>예약번호</th>
+													<th>접수자</th>
+													<th>환자</th>
+													<th>상세증상</th>
+													<th>진료과목</th>
+													<th>의사</th>
+													<th>예약시간</th>
+													<th>진행상태</th>
+													<th>확인</th>
+												</tr>
+											</c:if>
+										</thead>
 										
-										<c:forEach items="${mediList}" var="dto" varStatus="status">
-											<tr onclick="location.href='/apa/hospital/diagnosis/history-view.do">
-												<td>${mediList.size() - status.count + 1}</td>
-												<td>${dto.mediSeq}</td>
-												<td>${dto.userName}</td>
-												<td>
-													<c:if test="${dto.childName == null}">
-														${dto.userName}
+										<tbody>
+											<c:forEach items="${mediList}" var="dto">
+												<tr onclick="location.href='/apa/hospital/diagnosis/history-view.do?mediSeq=${dto.mediSeq}';">
+													<%-- <td>${mediList.size() - status.count + 1}</td> --%>
+													<td>${dto.rnum}</td>
+													<td>${dto.mediSeq}</td>
+													<td>${dto.userName}</td>
+													<td>
+														<c:if test="${dto.childName == null}">
+															${dto.userName}
+														</c:if>
+														<c:if test="${dto.childName != null}">
+															${dto.childName}
+														</c:if>
+													</td>
+													<c:if test="${dto.symptom == null}">
+														<td class="symptomNull">(미작성)</td>
 													</c:if>
-													<c:if test="${dto.childName != null}">
-														${dto.childName}
+													<c:if test="${dto.symptom != null}">
+														<td>${dto.symptom}</td>
 													</c:if>
-												</td>
-												<td>${dto.symptom}</td>
-												<td>${dto.departmentName}</td>
-												<td>${dto.doctorName}</td>
-												<td>${dto.treatmentDate}</td>
-												<td>${dto.waitingStatus}</td>
-												<td>
-													<c:if test="${dto.waitingStatus == '대기중'}">
-														<button type="button" name="btnCall" id="btnCall">환자호출</button>
-													</c:if>
-													<c:if test="${dto.waitingStatus == '진료중'}">
-														<button type="button" name="btnFinish" id="btnFinish">진료완료</button>
-													</c:if>
-												</td>
-											</tr>
-										</c:forEach>
+													
+													<td>${dto.departmentName}</td>
+													<td>${dto.doctorName}</td>
+													<td>${dto.treatmentDate}</td>
+													<td>${dto.waitingStatus}</td>
+													<td>
+														<c:if test="${dto.waitingStatus == '대기중'}">
+															<button type="button" name="btnCall" id="btnCall" onclick="callPatient(event, ${dto.mediSeq});">환자호출</button>
+														</c:if>
+														<c:if test="${dto.waitingStatus == '진료중'}">
+															<button type="button" name="btnFinish" id="btnFinish" onclick="finishDiagnosis(event, ${dto.mediSeq});">진료완료</button>
+														</c:if>
+													</td>
+												</tr>
+											</c:forEach>
+										</tbody>
 										
-										<c:if test="${list.size() == 0}">
-											<h4 class="null-msg">오늘의 진료가 없습니다.</h4>
-										</c:if>
 									</table>
 										
+									
 									<!-- 페이지바 -->
-									<div id="pagebar">${pagebar}</div>
+									<c:if test="${mediList.size() != 0}">
+										<div id="pagebar">${pagebar}</div>
+									</c:if>
+									
+									<c:if test="${mediList.size() == 0}">
+										<h4 class="null-msg">오늘의 진료가 없습니다.</h4>
+									</c:if>
 									
 								</div>
 							</div>
@@ -427,6 +460,10 @@ button {
 	<%@ include file="/WEB-INF/views/inc/hospitallogouttop.jsp"%>
 
 	<script>
+		$('tr > td:last-child').click(function(event) {
+			event.stopPropagation();
+		});
+		
 		function approvalRegister(mediSeq){
 			//alert('승인');
 			//alert(mediSeq);
@@ -483,6 +520,18 @@ button {
 					}
 				});
 			}
+		}
+		
+		function callPatient(event, mediSeq) {
+			alert('환자호출');
+			
+		}
+		
+		
+		
+		function finishDiagnosis(event, mediSeq) {
+			alert('진료완료');
+			
 		}
 	</script>
 </body>

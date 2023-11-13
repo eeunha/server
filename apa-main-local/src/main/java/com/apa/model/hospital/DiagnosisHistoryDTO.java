@@ -10,6 +10,16 @@ public class DiagnosisHistoryDTO {
 	private String treatmentDate;
 	private String waitingStatus;
 
+	private String rnum;
+
+	public String getRnum() {
+		return rnum;
+	}
+
+	public void setRnum(String rnum) {
+		this.rnum = rnum;
+	}
+
 	public String getMediSeq() {
 		return mediSeq;
 	}

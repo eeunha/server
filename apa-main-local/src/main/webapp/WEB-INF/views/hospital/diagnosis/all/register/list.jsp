@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,98 @@
 .sidebar-clicked {
 	background-color: #dddfeb;
 }
-	
+
+button, input[type=date] {
+	border: 1px solid #CCC;
+	border-radius: 5px;
+	color: #858796;
+}
+
+input[type=date] {
+	margin-right: 10px;
+}
+
+button:hover {
+   background-color: #CCC;
+}
+
+#register-all-list tr {
+	height: 40px;
+}
+
+#register-all-list tbody tr:hover{
+	cursor: pointer;
+	background-color: #dddfeb;
+}
+
+#register-all-list th {
+	text-align: center;
+	border-right: 1px solid #CCC;
+}
+
+#register-all-list tr:first-child th {
+	background-color: #edf0f7;
+}
+
+#register-all-list td {
+	border-bottom: 1px solid #edf0f7;
+	border-right: 1px solid #edf0f7;
+	text-align: center;
+}
+
+
+#register-all-list th:last-child, #register-all-list td:last-child {
+	border-right: none;
+}
+
+.null-msg{
+	text-align: center;
+}
+
+#register-all-list th:nth-child(1) {
+	width: 50px;
+}
+#register-all-list th:nth-child(2) {
+	width: 100px;
+}
+#register-all-list th:nth-child(3) {
+	width: 100px;
+}
+#register-all-list th:nth-child(4) {
+	width: 270px;
+}
+#register-all-list th:nth-child(5) {
+	width: 100px;
+}
+#register-all-list th:nth-child(6) {
+	width: 600px;
+}
+#register-all-list th:nth-child(7) {
+	width: 270px;
+}
+#register-all-list th:nth-child(8) {
+	width: 100px;
+}
+
+#register-all-list td:nth-child(6) {
+	padding-left: 10px;
+	text-align: left;
+}
+
+.waiting {
+	color: tomato;
+}
+
+#pagebar{
+	text-align: center;
+	margin-top: 20px;
+	font-size: 1.1rem;
+}
+
+.symptomNull {
+	color: #CCC;
+}
+
 </style>
 <body id="page-top">
 
@@ -179,12 +271,17 @@
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h5 class="m-0 font-weight-bold text-primary">예약</h5>
+                                    <!-- <h5 class="m-0 font-weight-bold text-primary">예약</h5> -->
+                                    <div>
+                                    	<input type="date">
+                                    	<button type="submit">검색</button>
+                                    </div>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <table id="register-all-list" class="list">
 										<thead>
-											<%-- <c:if test="${list.size() != 0}"> --%>
+											<c:if test="${list.size() != 0}">
 												<tr>
 													<th>번호</th>
 													<th>예약번호</th>
@@ -195,13 +292,44 @@
 													<th>신청일시</th>
 													<th>상태</th>
 												</tr>
-											<!-- </c:if> -->
+											</c:if>
 										</thead>
 										
 										<tbody>
-										
-										</tbody>										
+											<c:forEach items="${list}" var="dto">
+												<tr onclick="location.href='/apa/hospital/diagnosis/all/register/view.do?mediSeq=${dto.mediSeq}';">
+													<td>${dto.rnum}</td>
+													<td>${dto.mediSeq}</td>
+													<td>${dto.userName}</td>
+													<td>${dto.treatmentDate}</td>
+													<td>${dto.doctorName}</td>
+													<c:if test="${dto.symptom == null}">
+														<td class="symptomNull">(미작성)</td>
+													</c:if>
+													<c:if test="${dto.symptom != null}">
+														<td>${dto.symptom}</td>
+													</c:if>
+													<td>${dto.regdate}</td>
+													<c:if test="${dto.waitingStatus == '대기'}">
+														<td class="waiting">${dto.waitingStatus}</td>
+													</c:if>
+													<c:if test="${dto.waitingStatus != '대기'}">
+														<td>${dto.waitingStatus}</td>
+													</c:if>
+												</tr>
+											</c:forEach>
+										</tbody>								
 									</table>
+									
+									<c:if test="${list.size() != 0}">
+										<!-- 페이지바 -->
+										<div id="pagebar">${pagebar}</div>
+									</c:if>
+									
+									<c:if test="${list.size() == 0}">
+										<h4 class="null-msg">예약 내역이 없습니다.</h4>
+									</c:if>
+		
                                 </div>
                             </div>
                         </div>
@@ -224,20 +352,39 @@
     <%@ include file="/WEB-INF/views/inc/hospitallogouttop.jsp" %>
     
     <script>
-    	<%-- const hospitalId = '<%= session.getAttribute("id").toString() %>'; --%>
+    	//const hospitalId = '<%= session.getAttribute("id").toString() %>';
     	//alert(hospitalId);
-    
-    	load();
     	
-    	//댓글 목록 가져오기
+    	//alert(${list.size()});
+    
+    	//load();
+    	
+    	//예약 목록 가져오기
     	function load() {
     		$.ajax({
     			type:'GET',
-    			url: '/apa/hospital/diagnosis/all/register/list.do',
+    			url: '/apa/hospital/diagnosis/all/register/get-data.do',
     			/* data: 'hospitalId=' + hospitalId, */
     			dataType: 'json',
     			success: function(result) {
+    				$('#register-all-list tbody').html('');
     				
+    				$(result).each((index, item) => {
+    					let temp = `
+    						<tr>
+								<th>\${item.mediSeq}</th>
+								<th>\${item.mediSeq}</th>
+								<th>\${item.userName}</th>
+								<th>\${item.treatmentDate}</th>
+								<th>\${item.doctorName}</th>
+								<th>\${item.symptom}</th>
+								<th>\${item.regdate}</th>
+								<th>상태</th>
+							</tr>
+    					`;
+						
+    					$('#register-all-list tbody').append(temp);
+    				})
     			},
     			error: function(a, b, c) {
     				console.log(a, b, c);

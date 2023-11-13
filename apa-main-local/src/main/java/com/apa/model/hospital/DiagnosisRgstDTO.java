@@ -26,6 +26,35 @@ public class DiagnosisRgstDTO {
 	private String doctorImage;
 	private String departmentName;
 
+	private String waitingPatientSeq;
+	private String waitingStatus;
+
+	private String rnum;
+
+	public String getRnum() {
+		return rnum;
+	}
+
+	public void setRnum(String rnum) {
+		this.rnum = rnum;
+	}
+
+	public String getWaitingPatientSeq() {
+		return waitingPatientSeq;
+	}
+
+	public void setWaitingPatientSeq(String waitingPatientSeq) {
+		this.waitingPatientSeq = waitingPatientSeq;
+	}
+
+	public String getWaitingStatus() {
+		return waitingStatus;
+	}
+
+	public void setWaitingStatus(String waitingStatus) {
+		this.waitingStatus = waitingStatus;
+	}
+
 	public String getMediSeq() {
 		return mediSeq;
 	}
